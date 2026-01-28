@@ -11,10 +11,10 @@
  * - Email to CLIENT (confirmation)
  */
 
-const EMAILJS_PUBLIC_KEY = "REPLACE_ME_PUBLIC_KEY";
-const EMAILJS_SERVICE_ID = "REPLACE_ME_SERVICE_ID";
-const TEMPLATE_TO_YOU = "REPLACE_ME_TEMPLATE_TO_YOU";
-const TEMPLATE_TO_CLIENT = "REPLACE_ME_TEMPLATE_TO_CLIENT";
+const EMAILJS_PUBLIC_KEY = "1W9hCtI-g2_AHgkjm";
+const EMAILJS_SERVICE_ID = "service_pcftr5k";
+const TEMPLATE_TO_YOU = "template_6wlzugs";
+const TEMPLATE_TO_CLIENT = "template_tp6wn9n";
 
 function loadEmailJs() {
   return new Promise((resolve, reject) => {

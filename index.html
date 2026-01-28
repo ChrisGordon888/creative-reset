@@ -1,235 +1,265 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>14-Day Focus Reset</title>
-    <meta name="description"
-        content="A lightweight reset for overwhelmed creatives: simplify tools, pick one focus, and get next steps." />
-    <link rel="stylesheet" href="assets/style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>14-Day Focus Reset</title>
+  <meta name="description" content="A lightweight reset for overwhelmed creatives: simplify tools, pick one focus, and get next steps." />
+  <link rel="stylesheet" href="assets/style.css" />
 </head>
 
 <body>
-    <main class="container">
-        <header class="header hero">
-            <div class="hero-inner">
-                <p class="kicker">14-Day Focus Reset</p>
-                <h1>Clarity for overwhelmed creatives — in one clean plan.</h1>
-                <p class="sub">
-                    Fill this out (5–10 min). You’ll get a focused 14-day reset: what to do, what to ignore, and how to
-                    finish something real.
-                </p>
+  <main class="container">
+    <header class="header hero">
+      <div class="hero-inner">
+        <p class="kicker">14-Day Focus Reset</p>
+        <h1>Clarity for overwhelmed creatives — in one clean plan.</h1>
+        <p class="sub">
+          Fill this out (5–10 min). You’ll get a focused 14-day reset: what to do, what to ignore, and how to finish something real.
+        </p>
 
-                <div class="hero-meta">
-                    <div class="meta-item">
-                        <div class="meta-title">Deliverable</div>
-                        <div class="meta-value">1–2 page Focus Reset</div>
-                    </div>
-                    <div class="meta-item">
-                        <div class="meta-title">Turnaround</div>
-                        <div class="meta-value">24–48 hours</div>
-                    </div>
-                    <div class="meta-item">
-                        <div class="meta-title">Best for</div>
-                        <div class="meta-value">Music • Tech • Wellness</div>
-                    </div>
-                </div>
-            </div>
-        </header>
+        <div class="hero-meta">
+          <div class="meta-item">
+            <div class="meta-title">Deliverable</div>
+            <div class="meta-value">1–2 page Focus Reset</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-title">Turnaround</div>
+            <div class="meta-value">24–72 hours</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-title">Best for</div>
+            <div class="meta-value">Music • Tech • Wellness</div>
+          </div>
+        </div>
+      </div>
+    </header>
 
-        <section class="card">
-            <h2>How it works</h2>
-            <ol>
-                <li>You submit the questionnaire.</li>
-                <li>I extract patterns + bottlenecks.</li>
-                <li>You receive a focused 14-day plan with constraints and next actions.</li>
-            </ol>
-            <p class="note">Not therapy. Not a course. Just clarity + execution.</p>
-            <p class="note">Not therapy. Not a course. A clarity reset.</p>
-        </section>
+    <section class="card">
+      <h2>How it works</h2>
+      <ol>
+        <li>You submit the questionnaire.</li>
+        <li>I extract patterns + bottlenecks.</li>
+        <li>You receive a focused 14-day plan with constraints and next actions.</li>
+      </ol>
+      <p class="note">Not therapy. Not a course. Just clarity + execution.</p>
+    </section>
 
-        <section class="card">
-            <h2>Focus Reset Intake</h2>
+    <section class="card">
+      <h2>What you’ll receive</h2>
+      <ul class="bullets">
+        <li><strong>Primary Goal:</strong> one outcome for the next 14 days</li>
+        <li><strong>Constraints:</strong> tools allowed + what to pause</li>
+        <li><strong>Daily Rhythm:</strong> minutes/day + best time window</li>
+        <li><strong>Next 3 Actions:</strong> the first steps to execute immediately</li>
+        <li><strong>Slip Plan:</strong> what to do when motivation drops</li>
+      </ul>
+      <p class="note">Designed to reduce overwhelm and increase follow-through.</p>
+    </section>
 
-            <form id="resetForm">
-                <div class="grid">
-                    <label>
-                        Name
-                        <input name="name" required />
-                    </label>
-                    <label>
-                        Email
-                        <input name="email" type="email" required />
-                    </label>
-                </div>
+    <section class="card">
+      <h2>Focus Reset Intake</h2>
 
-                <label>
-                    Primary identity (pick up to 2)
-                    <input name="identity" placeholder="e.g., Producer, Artist, Developer, Coach" />
-                </label>
+      <form id="resetForm">
+        <div class="grid">
+          <label>
+            Name
+            <input name="name" autocomplete="name" required />
+          </label>
+          <label>
+            Email
+            <input name="email" type="email" autocomplete="email" required />
+          </label>
+        </div>
 
-                <label>
-                    #1 reason you want this reset right now
-                    <textarea name="reason" rows="2" required></textarea>
-                </label>
+        <label>
+          Primary identity (pick up to 2)
+          <input name="identity" placeholder="e.g., Producer, Artist, Developer, Coach" />
+        </label>
 
-                <label>
-                    What are you trying to complete or move forward in the next 14 days?
-                    <textarea name="goal_14" rows="2" required></textarea>
-                </label>
+        <label>
+          #1 reason you want this reset right now
+          <textarea name="reason" rows="2" required></textarea>
+        </label>
 
-                <label>
-                    If you finish ONE thing in 14 days, what makes you feel “back on track”?
-                    <textarea name="one_thing" rows="2" required></textarea>
-                </label>
+        <label>
+          What are you trying to complete or move forward in the next 14 days?
+          <textarea name="goal_14" rows="2" required></textarea>
+        </label>
 
-                <label>
-                    Tools you use weekly (DAWs, apps, platforms, devices) — comma list
-                    <textarea name="tools" rows="2"></textarea>
-                </label>
+        <label>
+          If you finish ONE thing in 14 days, what makes you feel “back on track”?
+          <textarea name="one_thing" rows="2" required></textarea>
+        </label>
 
-                <label>
-                    Inputs you consume weekly (YouTube, courses, socials, etc.)
-                    <textarea name="inputs" rows="2"></textarea>
-                </label>
+        <label>
+          Tools you use weekly (DAWs, apps, platforms, devices) — comma list
+          <textarea name="tools" rows="2"></textarea>
+        </label>
 
-                <div class="grid">
-                    <label>
-                        Essential tools (short list)
-                        <textarea name="essential_tools" rows="2"></textarea>
-                    </label>
-                    <label>
-                        Distracting tools (short list)
-                        <textarea name="distracting_tools" rows="2"></textarea>
-                    </label>
-                </div>
+        <label>
+          Inputs you consume weekly (YouTube, courses, socials, etc.)
+          <textarea name="inputs" rows="2"></textarea>
+        </label>
 
-                <label>
-                    Where do you get stuck most often?
-                    <input name="stuck" placeholder="Starting / finishing / perfectionism / etc." />
-                </label>
+        <div class="grid">
+          <label>
+            Essential tools (short list)
+            <textarea name="essential_tools" rows="2"></textarea>
+          </label>
+          <label>
+            Distracting tools (short list)
+            <textarea name="distracting_tools" rows="2"></textarea>
+          </label>
+        </div>
 
-                <label>
-                    What have you tried that didn’t work?
-                    <textarea name="tried_failed" rows="2"></textarea>
-                </label>
+        <label>
+          Where do you get stuck most often?
+          <input name="stuck" placeholder="Starting / finishing / perfectionism / etc." />
+        </label>
 
-                <label>
-                    What drains you most right now? (pick up to 3)
-                    <input name="drains" placeholder="Tool chaos, unclear plan, time, sleep, money..." />
-                </label>
+        <label>
+          What have you tried that didn’t work?
+          <textarea name="tried_failed" rows="2"></textarea>
+        </label>
 
-                <label>
-                    Choose ONE focus lane for the next 14 days
-                    <select name="focus_lane" required>
-                        <option value="">Select…</option>
-                        <option>Finish a song/demo</option>
-                        <option>Create 2–5 content pieces</option>
-                        <option>Build a portfolio/site</option>
-                        <option>Apply to jobs/clients consistently</option>
-                        <option>Build a small product/service</option>
-                        <option>Health reset / training consistency</option>
-                        <option>Other</option>
-                    </select>
-                </label>
+        <label>
+          What drains you most right now? (pick up to 3)
+          <input name="drains" placeholder="Tool chaos, unclear plan, time, sleep, money..." />
+        </label>
 
-                <div class="grid">
-                    <label>
-                        If you could only use TWO tools for 14 days…
-                        <input name="two_tools" placeholder="Ableton + Notes, etc." />
-                    </label>
-                    <label>
-                        What are you willing to PAUSE for 14 days?
-                        <input name="pause" placeholder="New tools, new projects, socials..." />
-                    </label>
-                </div>
+        <label>
+          Choose ONE focus lane for the next 14 days
+          <select name="focus_lane" id="focusLane" required>
+            <option value="">Select…</option>
+            <option>Finish a song/demo</option>
+            <option>Create 2–5 content pieces</option>
+            <option>Build a portfolio/site</option>
+            <option>Apply to jobs/clients consistently</option>
+            <option>Build a small product/service</option>
+            <option>Health reset / training consistency</option>
+            <option>Other</option>
+          </select>
+        </label>
 
-                <div class="grid">
-                    <label>
-                        Minutes/day realistically
-                        <select name="minutes_per_day" required>
-                            <option value="">Select…</option>
-                            <option>15</option>
-                            <option>30</option>
-                            <option>45</option>
-                            <option>60</option>
-                            <option>90+</option>
-                        </select>
-                    </label>
-                    <label>
-                        Best time window most days
-                        <select name="time_window">
-                            <option>Morning</option>
-                            <option>Midday</option>
-                            <option>Evening</option>
-                            <option>Flexible</option>
-                        </select>
-                    </label>
-                </div>
+        <label id="focusLaneOtherWrap" style="display:none;">
+          If you selected “Other”, what is it?
+          <input name="focus_lane_other" autocomplete="off"
+                 placeholder="e.g., launch page, client outreach, finish a beat pack…" />
+        </label>
 
-                <label>
-                    Biggest derail risk in the next 14 days?
-                    <textarea name="derail_risk" rows="2"></textarea>
-                </label>
+        <div class="grid">
+          <label>
+            If you could only use TWO tools for 14 days…
+            <input name="two_tools" placeholder="Ableton + Notes, etc." />
+          </label>
+          <label>
+            What are you willing to PAUSE for 14 days?
+            <input name="pause" placeholder="New tools, new projects, socials..." />
+          </label>
+        </div>
 
-                <div class="grid">
-                    <label>
-                        Success in 14 days (measurable)
-                        <textarea name="success" rows="2" required></textarea>
-                    </label>
-                    <label>
-                        Minimum viable success (smaller + easier)
-                        <textarea name="min_success" rows="2" required></textarea>
-                    </label>
-                </div>
+        <div class="grid">
+          <label>
+            Minutes/day realistically
+            <select name="minutes_per_day" required>
+              <option value="">Select…</option>
+              <option>15</option>
+              <option>30</option>
+              <option>45</option>
+              <option>60</option>
+              <option>90+</option>
+            </select>
+          </label>
+          <label>
+            Best time window most days
+            <select name="time_window">
+              <option>Morning</option>
+              <option>Midday</option>
+              <option>Evening</option>
+              <option>Flexible</option>
+            </select>
+          </label>
+        </div>
 
-                <div class="grid">
-                    <label>
-                        Plan style preference
-                        <select name="plan_style">
-                            <option>Gentle & sustainable</option>
-                            <option>Balanced</option>
-                            <option>Focused & demanding</option>
-                        </select>
-                    </label>
-                    <label>
-                        Accountability preference
-                        <select name="accountability">
-                            <option>Written reset only</option>
-                            <option>1 follow-up message</option>
-                            <option>1 follow-up call</option>
-                        </select>
-                    </label>
-                </div>
+        <label>
+          Biggest derail risk in the next 14 days?
+          <textarea name="derail_risk" rows="2"></textarea>
+        </label>
 
-                <label>
-                    Links to your work (optional)
-                    <textarea name="links" rows="2" placeholder="URLs"></textarea>
-                </label>
+        <div class="grid">
+          <label>
+            Success in 14 days (measurable)
+            <textarea name="success" rows="2" required></textarea>
+          </label>
+          <label>
+            Minimum viable success (smaller + easier)
+            <textarea name="min_success" rows="2" required></textarea>
+          </label>
+        </div>
 
-                <label>
-                    Anything you want me to avoid recommending?
-                    <textarea name="avoid" rows="2"></textarea>
-                </label>
+        <div class="grid">
+          <label>
+            Plan style preference
+            <select name="plan_style">
+              <option>Gentle & sustainable</option>
+              <option>Balanced</option>
+              <option>Focused & demanding</option>
+            </select>
+          </label>
+          <label>
+            Accountability preference
+            <select name="accountability">
+              <option>Written reset only</option>
+              <option>1 follow-up message</option>
+              <option>1 follow-up call</option>
+            </select>
+          </label>
+        </div>
 
-                <div class="actions">
-                    <button id="submitBtn" type="submit">Submit Focus Reset</button>
-                    <p class="tiny" id="statusText"></p>
-                </div>
-            </form>
+        <label>
+          Links to your work/socials (optional)
+          <textarea name="links" rows="2" placeholder="URLs"></textarea>
+        </label>
 
-            <p class="tiny note">
-                Tip: You’ll get a confirmation email after submitting.
-            </p>
-        </section>
+        <label>
+          Anything you want me to avoid recommending?
+          <textarea name="avoid" rows="2"></textarea>
+        </label>
 
-        <footer class="footer">
-            <p class="tiny">© Chris Gordon • Built on GitHub Pages</p>
-        </footer>
-    </main>
+        <div class="actions">
+          <button id="submitBtn" type="submit">Submit Focus Reset</button>
+        </div>
 
-    <script src="assets/app.v2.js"></script>
+        <p class="tiny note privacy">Your answers stay private. No spam — just delivery + follow-up.</p>
+        <p class="tiny" id="statusText"></p>
+      </form>
+
+      <p class="tiny note">Tip: You’ll get a confirmation email after submitting.</p>
+    </section>
+
+    <footer class="footer">
+      <p class="tiny">© Chris Gordon • Built on GitHub Pages</p>
+    </footer>
+  </main>
+
+  <script src="assets/app.v2.js"></script>
+
+  <script>
+    const focusLane = document.getElementById('focusLane');
+    const otherWrap = document.getElementById('focusLaneOtherWrap');
+    const otherInput = otherWrap ? otherWrap.querySelector('input[name="focus_lane_other"]') : null;
+
+    function toggleOther() {
+      const isOther = focusLane && focusLane.value === 'Other';
+      if (otherWrap) otherWrap.style.display = isOther ? 'block' : 'none';
+      if (otherInput) otherInput.required = !!isOther;
+    }
+
+    if (focusLane) {
+      focusLane.addEventListener('change', toggleOther);
+      toggleOther();
+    }
+  </script>
 </body>
-
 </html>

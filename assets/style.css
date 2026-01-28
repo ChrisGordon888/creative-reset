@@ -17,16 +17,18 @@ body{
   margin:0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
   color: var(--text);
-  background: radial-gradient(1200px 700px at 15% 10%, rgba(122,167,255,0.22), transparent 60%),
-              radial-gradient(900px 600px at 85% 15%, rgba(102,255,209,0.15), transparent 55%),
-              radial-gradient(900px 700px at 50% 90%, rgba(166,110,255,0.14), transparent 60%),
-              linear-gradient(180deg, #060810, #050712);
+  background:
+    radial-gradient(1200px 700px at 15% 10%, rgba(122,167,255,0.22), transparent 60%),
+    radial-gradient(900px 600px at 85% 15%, rgba(102,255,209,0.15), transparent 55%),
+    radial-gradient(900px 700px at 50% 90%, rgba(166,110,255,0.14), transparent 60%),
+    linear-gradient(180deg, #060810, #050712);
 }
 
 .container{
   max-width: 980px;
   margin: 0 auto;
   padding: 28px 16px 70px;
+  line-height: 1.45;
 }
 
 .header{ margin-bottom: 18px; }
@@ -78,7 +80,7 @@ h1{
 .sub{
   color: var(--muted);
   margin: 0 0 14px;
-  line-height: 1.5;
+  line-height: 1.55;
   max-width: 760px;
 }
 
@@ -104,9 +106,7 @@ h1{
   margin-bottom: 6px;
 }
 
-.meta-value{
-  font-size: 14px;
-}
+.meta-value{ font-size: 14px; }
 
 @media (min-width: 760px){
   .hero-meta{ grid-template-columns: repeat(3, 1fr); }
@@ -115,22 +115,39 @@ h1{
 .card{
   background: var(--card);
   border: 1px solid var(--line);
-  border-radius: 18px;
+  border-radius: 20px;
   padding: 18px;
   margin: 14px 0;
   box-shadow: 0 10px 40px rgba(0,0,0,0.25);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 h2{
   margin: 0 0 10px;
-  font-size: 18px;
+  font-size: 19px;
+  letter-spacing: 0.01em;
 }
 
-ol{ margin: 10px 0 0 18px; color: var(--text); }
+/* Lists */
+ol, ul{
+  margin: 10px 0 0 0;
+  padding-left: 18px;
+}
+ol li, ul li{
+  line-height: 1.55;
+  margin: 8px 0;
+}
+
 .note{ color: var(--muted); margin-top: 10px; }
 
-label{ display:block; margin: 12px 0; }
+/* Form labels + inputs */
+label{
+  display:block;
+  margin: 12px 0;
+  font-size: 14px;
+  color: var(--text);
+}
 
 input, textarea, select{
   width: 100%;
@@ -141,6 +158,11 @@ input, textarea, select{
   background: rgba(6, 10, 18, 0.65);
   color: var(--text);
   outline: none;
+  font-size: 14px;
+}
+
+::placeholder{
+  color: rgba(168, 179, 207, 0.6);
 }
 
 input:focus, textarea:focus, select:focus{
@@ -160,14 +182,22 @@ textarea{ resize: vertical; }
   .grid{ grid-template-columns: 1fr 1fr; }
 }
 
+/* Actions */
 .actions{
   display:flex;
   align-items:center;
   gap: 14px;
   margin-top: 14px;
-  flex-wrap: wrap;
 }
 
+/* Bullets in "What you'll receive" */
+.bullets{
+  margin-top: 10px;
+  color: var(--text);
+}
+.bullets strong{ color: var(--text); }
+
+/* Button */
 button{
   border: 0;
   border-radius: 14px;
@@ -177,12 +207,19 @@ button{
   font-weight: 800;
   cursor: pointer;
   box-shadow: 0 14px 40px rgba(0,0,0,0.35);
+  width: 100%;
+}
+
+@media (min-width: 760px){
+  button{ width: auto; }
 }
 
 button[disabled]{ opacity: 0.7; cursor: not-allowed; }
-
 button:hover{ filter: brightness(1.05); }
 
 .tiny{ color: var(--muted); font-size: 12px; }
+.privacy{ margin-top: 10px; }
+#statusText{ margin-top: 8px; }
+
 .link{ color: #8fb5ff; }
 .footer{ margin-top: 24px; }

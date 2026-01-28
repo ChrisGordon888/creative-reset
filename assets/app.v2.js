@@ -50,6 +50,7 @@ function disableSubmit(disabled) {
 
     const data = new FormData(form);
     const payload = Object.fromEntries(data.entries());
+    payload.email = (payload.email || "").trim();
 
     try {
       await loadEmailJs();

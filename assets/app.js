@@ -1,12 +1,14 @@
 /**
- * EmailJS integration (GitHub Pages friendly)
+ * EmailJS integration (debuggable)
  *
- * This version:
- * - Forces correct recipients using `to_email` (admin) and `to_email` (client)
- * - Uses `reply_to` so replies go to the right person
- * - Adds console logging for deterministic debugging
+ * Fixes:
+ * - Sends admin email -> you (template 1)
+ * - Sends client confirmation -> client (template 2)
+ * - Stores debug logs in sessionStorage so redirect won't wipe them
+ * - Only redirects AFTER both sends succeed
  *
- * IMPORTANT: Update BOTH EmailJS templates:
+ * IMPORTANT (EmailJS templates):
+ * In BOTH templates set:
  *  - To Email: {{to_email}}
  *  - Reply-to: {{reply_to}}
  */
@@ -16,12 +18,10 @@ const EMAILJS_SERVICE_ID = "service_pcftr5k";
 const TEMPLATE_TO_YOU = "template_6wlzugs";
 const TEMPLATE_TO_CLIENT = "template_tp6wn9n";
 
-// Change if you want admin emails routed elsewhere
 const ADMIN_EMAIL = "chris.c.gordon888@gmail.com";
 
 function loadEmailJs() {
   return new Promise((resolve, reject) => {
-    // Avoid double-injecting the script if the page is reloaded quickly
     if (window.emailjs) return resolve();
 
     const s = document.createElement("script");
@@ -43,13 +43,16 @@ function disableSubmit(disabled) {
   if (btn) btn.disabled = !!disabled;
 }
 
-function safeLog(label, value) {
-  try {
-    // Keep logs readable; don’t dump huge objects accidentally
-    console.log(label, value);
-  } catch (_) {
-    // no-op
-  }
+function logPersist(line) {
+  const key = "focus_reset_debug_logs";
+  const existing = sessionStorage.getItem(key);
+  const next = (existing ? existing + "\n" : "") + line;
+  sessionStorage.setItem(key, next);
+  console.log(line);
+}
+
+function clearLogs() {
+  sessionStorage.removeItem("focus_reset_debug_logs");
 }
 
 (async function init() {
@@ -58,25 +61,28 @@ function safeLog(label, value) {
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+    clearLogs();
+
     setStatus("");
     disableSubmit(true);
     setStatus("Submitting…");
 
-    // Collect form data
     const data = new FormData(form);
     const payload = Object.fromEntries(data.entries());
 
-    // Debug logs (requested)
-    safeLog("Using TEMPLATE_TO_YOU:", TEMPLATE_TO_YOU);
-    safeLog("Using TEMPLATE_TO_CLIENT:", TEMPLATE_TO_CLIENT);
-    safeLog("Payload email:", payload.email);
+    logPersist(`TEMPLATE_TO_YOU=${TEMPLATE_TO_YOU}`);
+    logPersist(`TEMPLATE_TO_CLIENT=${TEMPLATE_TO_CLIENT}`);
+    logPersist(`payload.email=${payload.email || "(missing)"}`);
 
     try {
       await loadEmailJs();
       // eslint-disable-next-line no-undef
       emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+      logPersist("EmailJS loaded + initialized ✅");
 
-      // 1) Admin email (full submission) -> ALWAYS to you
+      // 1) Admin email (full submission)
+      setStatus("Sending admin email…");
+
       const adminParams = {
         ...payload,
         to_email: ADMIN_EMAIL,
@@ -85,9 +91,11 @@ function safeLog(label, value) {
 
       // eslint-disable-next-line no-undef
       const r1 = await emailjs.send(EMAILJS_SERVICE_ID, TEMPLATE_TO_YOU, adminParams);
-      safeLog("Sent admin template result:", r1);
+      logPersist(`Admin send OK: status=${r1.status} text=${r1.text}`);
 
-      // 2) Client confirmation -> ALWAYS to client
+      // 2) Client confirmation
+      setStatus("Sending confirmation email…");
+
       const clientParams = {
         ...payload,
         to_email: payload.email,
@@ -96,19 +104,19 @@ function safeLog(label, value) {
 
       // eslint-disable-next-line no-undef
       const r2 = await emailjs.send(EMAILJS_SERVICE_ID, TEMPLATE_TO_CLIENT, clientParams);
-      safeLog("Sent client template result:", r2);
+      logPersist(`Client send OK: status=${r2.status} text=${r2.text}`);
 
+      setStatus("Success ✅ Redirecting…");
       window.location.href = "thanks.html";
     } catch (err) {
       console.error("EmailJS error:", err);
 
-      // If EmailJS provides a response body, surface it
-      const msg =
-        (err && err.text) ||
-        (err && err.message) ||
-        "Submission failed. Please try again, or email me directly.";
+      // EmailJS often returns {status, text}
+      const status = err && err.status ? `status=${err.status}` : "";
+      const text = err && err.text ? `text=${err.text}` : (err && err.message ? err.message : "");
+      logPersist(`ERROR ${status} ${text}`);
 
-      setStatus(msg);
+      setStatus(`Submission failed. ${status} ${text}`.trim());
       disableSubmit(false);
     }
   });

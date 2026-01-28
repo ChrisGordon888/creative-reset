@@ -12,8 +12,19 @@
       <h1>Submitted ✅</h1>
       <p>Thanks — your questionnaire was submitted.</p>
       <p class="note">Check your email for a confirmation. I’ll follow up with your Focus Reset.</p>
+
+      <details style="margin-top:12px;">
+        <summary>Debug info (click to expand)</summary>
+        <pre id="debugLogs" style="white-space:pre-wrap; margin-top:10px;"></pre>
+      </details>
+
       <a class="link" href="./">Back to home</a>
     </section>
   </main>
+
+  <script>
+    const logs = sessionStorage.getItem("focus_reset_debug_logs") || "No logs found.";
+    document.getElementById("debugLogs").textContent = logs;
+  </script>
 </body>
 </html>
